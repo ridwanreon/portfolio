@@ -174,7 +174,7 @@ export default function Footer() {
                         {/* GitHub */}
 
                         <motion.a
-                            href="#"
+                            href="https://github.com/ridwanreon"
                             target="_blank"
                             rel="noreferrer"
                             aria-label="GitHub"
@@ -201,7 +201,7 @@ export default function Footer() {
                         {/* LinkedIn */}
 
                         <motion.a
-                            href="#"
+                            href="https://www.linkedin.com/in/ridwanreon"
                             target="_blank"
                             rel="noreferrer"
                             aria-label="LinkedIn"

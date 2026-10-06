@@ -1,5 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+
+// Stable particle data – defined outside component so it doesn't re-generate on re-render
+const PARTICLES = [
+  { id: 1, cx: '12%', cy: '18%', r: 1.2, dur: 18, delay: 0 },
+  { id: 2, cx: '78%', cy: '8%',  r: 1,   dur: 22, delay: 2 },
+  { id: 3, cx: '55%', cy: '72%', r: 1.5, dur: 20, delay: 4 },
+  { id: 4, cx: '90%', cy: '55%', r: 1,   dur: 25, delay: 1 },
+  { id: 5, cx: '35%', cy: '90%', r: 1.3, dur: 17, delay: 3 },
+  { id: 6, cx: '8%',  cy: '62%', r: 0.9, dur: 23, delay: 5 },
+  { id: 7, cx: '65%', cy: '35%', r: 1.1, dur: 19, delay: 6 },
+  { id: 8, cx: '22%', cy: '45%', r: 0.8, dur: 26, delay: 2.5 },
+];
 
 export default function AmbientBackground() {
   const mouseX = useMotionValue(0);
@@ -60,6 +72,23 @@ export default function AmbientBackground() {
         style={{ x: orb3X, y: orb3Y }}
         className="absolute -bottom-[15%] left-[25%] w-[55vw] h-[55vw] max-w-[750px] max-h-[750px] rounded-full ambient-glow-center blur-3xl opacity-60 animate-orb-3"
       />
+
+      {/* Subtle floating particles */}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {PARTICLES.map((p) => (
+          <circle
+            key={p.id}
+            cx={p.cx}
+            cy={p.cy}
+            r={p.r}
+            className="ambient-particle"
+            style={{ animationDuration: `${p.dur}s`, animationDelay: `${p.delay}s` }}
+          />
+        ))}
+      </svg>
 
       {/* Subtle micro-texture overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>

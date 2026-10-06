@@ -142,6 +142,7 @@ export default function Technologies() {
 
     return (
         <motion.section
+            id="tech"
             className={`technologies-section ${isDark ? "dark-theme" : "light-theme"}`}
             variants={sectionVariants}
             initial="hidden"

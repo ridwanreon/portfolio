@@ -164,7 +164,40 @@ body {
   .animate-mouse-dot,
   .animate-orb-1,
   .animate-orb-2,
-  .animate-orb-3 {
+  .animate-orb-3,
+  .ambient-particle {
     animation: none !important;
   }
 }
+
+/* Subtle floating particles in AmbientBackground */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0px, 0px);
+    opacity: 0.18;
+  }
+  25% {
+    transform: translate(10px, -14px);
+    opacity: 0.32;
+  }
+  50% {
+    transform: translate(-8px, -22px);
+    opacity: 0.22;
+  }
+  75% {
+    transform: translate(14px, -10px);
+    opacity: 0.28;
+  }
+}
+
+.ambient-particle {
+  fill: rgba(59, 130, 246, 0.45);
+  animation: particleFloat 20s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Light mode: slightly warmer particle tint */
+:root:not(.dark) .ambient-particle {
+  fill: rgba(99, 102, 241, 0.35);
+}
+
