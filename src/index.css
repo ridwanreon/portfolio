@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Ambient Orbs & Glows */
+  .ambient-glow-left {
+    background: radial-gradient(circle at 15% 45%, rgba(29, 78, 216, 0.16) 0%, rgba(15, 23, 42, 0.02) 50%, transparent 75%);
+  }
+
+  .ambient-glow-right {
+    background: radial-gradient(circle at 85% 50%, rgba(30, 64, 175, 0.2) 0%, rgba(2, 6, 23, 0.08) 60%, transparent 80%);
+  }
+
+  .ambient-glow-center {
+    background: radial-gradient(circle at 50% 55%, rgba(139, 92, 246, 0.1) 0%, transparent 65%);
+  }
+
+  .avatar-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.35) 0%, rgba(15, 23, 42, 0) 70%);
+  }
+
+  /* Light mode ambient adaptations */
+  :root:not(.dark) .ambient-glow-left {
+    background: radial-gradient(circle at 15% 45%, rgba(59, 130, 246, 0.12) 0%, rgba(241, 245, 249, 0.05) 50%, transparent 75%);
+  }
+
+  :root:not(.dark) .ambient-glow-right {
+    background: radial-gradient(circle at 85% 50%, rgba(99, 102, 241, 0.1) 0%, rgba(248, 250, 252, 0.1) 60%, transparent 80%);
+  }
+
+  :root:not(.dark) .ambient-glow-center {
+    background: radial-gradient(circle at 50% 55%, rgba(168, 85, 247, 0.07) 0%, transparent 65%);
+  }
+
+  :root:not(.dark) .avatar-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.22) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  /* Glass pill navigation container */
+  .glass-pill {
+    background: rgba(18, 24, 38, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  :root:not(.dark) .glass-pill {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  /* Glass cards / badges */
+  .glass-badge {
+    background: rgba(13, 19, 32, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.07);
+  }
+
+  :root:not(.dark) .glass-badge {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  }
+
+  /* Pebble frame portrait container */
+  .pebble-frame {
+    border-radius: 46% 54% 50% 50% / 48% 46% 54% 52%;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 35px -5px rgba(37, 99, 235, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.03);
+  }
+
+  :root:not(.dark) .pebble-frame {
+    border: 1.5px solid rgba(37, 99, 235, 0.25);
+    box-shadow: 0 0 35px -5px rgba(37, 99, 235, 0.18), inset 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Waving Hand Natural Continuous Hi Animation */
+@keyframes naturalWaveHi {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(10deg); }
+  30% { transform: rotate(-7deg); }
+  40% { transform: rotate(7deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-wave-hi {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: naturalWaveHi 2.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Mouse Scroll Animation */
+@keyframes mouseBob {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 0.4;
+  }
+}
+
+.animate-mouse-dot {
+  animation: mouseBob 1.6s ease-in-out infinite;
+}
+
+/* Ambient Subtle Orb Breathing Animations */
+@keyframes orbSlow1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(18px, -14px) scale(1.05); }
+}
+
+@keyframes orbSlow2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-15px, 20px) scale(0.96); }
+}
+
+@keyframes orbSlow3 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(12px, 15px) scale(1.08); }
+}
+
+.animate-orb-1 {
+  animation: orbSlow1 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-orb-2 {
+  animation: orbSlow2 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-orb-3 {
+  animation: orbSlow3 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Smooth scrolling and transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave-hi,
+  .animate-mouse-dot,
+  .animate-orb-1,
+  .animate-orb-2,
+  .animate-orb-3 {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,828 @@
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+
+.projects-section {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 90px 40px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    transition:
+        background 0.6s ease,
+        color 0.6s ease;
+}
+
+
+/* =========================================
+   DARK MODE BACKGROUND
+   Same style as Skills section
+========================================= */
+
+.projects-section.dark-mode {
+    background:
+        radial-gradient(circle at 100% 0%,
+            rgba(75, 50, 150, 0.08),
+            transparent 35%),
+        radial-gradient(circle at 70% 100%,
+            rgba(25, 55, 130, 0.07),
+            transparent 40%),
+        #060810;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+.projects-section.light-mode {
+    background: #f8fafc;
+
+    color: #0f172a;
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.background-glow {
+    position: absolute;
+
+    pointer-events: none;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    z-index: 0;
+}
+
+
+/* Dark glow */
+
+.dark-glow {
+    top: -180px;
+    right: -100px;
+
+    background:
+        rgba(75, 50, 150, 0.08);
+}
+
+
+/* Light glow */
+
+.light-glow {
+    top: -180px;
+    right: -100px;
+
+    background:
+        rgba(96, 165, 250, 0.10);
+}
+
+
+/* =========================================
+   PROJECTS CONTAINER
+========================================= */
+
+.projects-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.project-heading {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+
+/* Section tag */
+
+.section-tag {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+    color: #7c5cff;
+}
+
+
+/* Heading */
+
+.project-heading h2 {
+    margin: 0;
+
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -0.03em;
+}
+
+
+.dark-mode .project-heading h2 {
+    color: #ffffff;
+}
+
+
+.light-mode .project-heading h2 {
+    color: #0f172a;
+}
+
+
+/* Heading paragraph */
+
+.project-heading p {
+    max-width: 620px;
+
+    margin: 14px auto 0;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.dark-mode .project-heading p {
+    color: #a1a1aa;
+}
+
+
+.light-mode .project-heading p {
+    color: #64748b;
+}
+
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+
+.project-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 1px solid;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Dark card */
+
+.dark-mode .project-card {
+    background:
+        rgba(17, 19, 29, 0.88);
+
+    border-color:
+        rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20);
+}
+
+
+/* Dark card hover */
+
+.dark-mode .project-card:hover {
+    border-color:
+        rgba(124, 92, 255, 0.25);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30);
+}
+
+
+/* Light card */
+
+.light-mode .project-card {
+    background: #ffffff;
+
+    border-color:
+        rgba(15, 23, 42, 0.08);
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================
+   PROJECT IMAGE
+========================================= */
+
+.project-image {
+    position: relative;
+
+    width: 100%;
+
+    height: 220px;
+
+    overflow: hidden;
+}
+
+
+.project-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.45));
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   PROJECT NUMBER
+========================================= */
+
+.project-number {
+    position: absolute;
+
+    top: 16px;
+
+    right: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 38px;
+
+    height: 30px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+.dark-mode .project-number {
+    color: #ffffff;
+
+    background:
+        rgba(5, 7, 14, 0.65);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+.light-mode .project-number {
+    color: #0f172a;
+
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    border:
+        1px solid rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================
+   PROJECT CONTENT
+========================================= */
+
+.project-content {
+    padding: 24px;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.project-category {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+.dark-mode .project-category {
+    color: #8b7cf6;
+}
+
+
+.light-mode .project-category {
+    color: #6366f1;
+}
+
+
+/* =========================================
+   TITLE ROW
+========================================= */
+
+.project-title-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+.project-title-row h3 {
+    margin: 0;
+
+    font-size: 20px;
+
+    line-height: 1.3;
+
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.dark-mode .project-title-row h3 {
+    color: #ffffff;
+}
+
+
+.light-mode .project-title-row h3 {
+    color: #0f172a;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.project-arrow {
+    flex-shrink: 0;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.project-card:hover .project-arrow {
+    transform:
+        translate(3px, -3px);
+}
+
+
+.dark-mode .project-arrow {
+    color: #a78bfa;
+}
+
+
+.light-mode .project-arrow {
+    color: #6366f1;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.project-description {
+    margin: 12px 0 18px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.dark-mode .project-description {
+    color: #a1a1aa;
+}
+
+
+.light-mode .project-description {
+    color: #64748b;
+}
+
+
+/* =========================================
+   TECHNOLOGIES
+========================================= */
+
+.project-technologies {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 22px;
+}
+
+
+.project-technologies span {
+    padding:
+        5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.dark-mode .project-technologies span {
+    color: #c4b5fd;
+
+    background:
+        rgba(124, 92, 255, 0.08);
+
+    border:
+        1px solid rgba(124, 92, 255, 0.12);
+}
+
+
+.light-mode .project-technologies span {
+    color: #4f46e5;
+
+    background:
+        rgba(99, 102, 241, 0.06);
+
+    border:
+        1px solid rgba(99, 102, 241, 0.10);
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.project-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* Common */
+
+.live-button,
+.github-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 34px;
+
+    padding:
+        0 13px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.live-button:hover,
+.github-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   LIVE BUTTON
+========================================= */
+
+.dark-mode .live-button {
+    color: #ffffff;
+
+    background:
+        rgba(124, 92, 255, 0.18);
+
+    border:
+        1px solid rgba(124, 92, 255, 0.25);
+}
+
+
+.dark-mode .live-button:hover {
+    background:
+        rgba(124, 92, 255, 0.28);
+}
+
+
+.light-mode .live-button {
+    color: #ffffff;
+
+    background: #4f46e5;
+
+    border:
+        1px solid #4f46e5;
+}
+
+
+.light-mode .live-button:hover {
+    background: #4338ca;
+}
+
+
+/* =========================================
+   GITHUB BUTTON
+========================================= */
+
+.dark-mode .github-button {
+    color: #d4d4d8;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+.dark-mode .github-button:hover {
+    color: #ffffff;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.light-mode .github-button {
+    color: #334155;
+
+    background: #ffffff;
+
+    border:
+        1px solid rgba(15, 23, 42, 0.12);
+}
+
+
+.light-mode .github-button:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .projects-section {
+        padding:
+            80px 30px;
+    }
+
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+
+
+    .project-card:last-child {
+        grid-column:
+            span 2;
+
+        max-width: calc(50% - 12px);
+
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .projects-section {
+        min-height: auto;
+
+        padding:
+            65px 18px;
+    }
+
+
+    .project-heading {
+        margin-bottom: 38px;
+    }
+
+
+    .project-heading h2 {
+        font-size: 32px;
+    }
+
+
+    .project-heading p {
+        max-width: 500px;
+
+        font-size: 12px;
+    }
+
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .project-card:last-child {
+        grid-column: auto;
+
+        max-width: none;
+
+        margin: 0;
+    }
+
+
+    .project-image {
+        height: 200px;
+    }
+
+
+    .project-content {
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .projects-section {
+        padding:
+            55px 14px;
+    }
+
+
+    .project-heading h2 {
+        font-size: 28px;
+    }
+
+
+    .section-tag {
+        font-size: 10px;
+    }
+
+
+    .project-heading p {
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+
+    .project-image {
+        height: 185px;
+    }
+
+
+    .project-content {
+        padding: 18px;
+    }
+
+
+    .project-title-row h3 {
+        font-size: 18px;
+    }
+
+
+    .project-description {
+        font-size: 11px;
+    }
+
+
+    .project-buttons {
+        gap: 8px;
+    }
+
+}

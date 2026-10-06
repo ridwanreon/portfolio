@@ -1,0 +1,718 @@
+/* ================================
+   QUALIFICATION SECTION
+================================ */
+
+.qualification-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 75vh;
+
+    overflow: hidden;
+
+    padding: 64px 24px;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.7s ease,
+        color 0.7s ease;
+}
+
+
+/* ================================
+   DARK MODE BACKGROUND
+   Skills section style
+================================ */
+
+.qualification-section.dark-mode {
+    background:
+        radial-gradient(circle at 100% 0%,
+            rgba(75, 50, 150, 0.08),
+            transparent 35%),
+        radial-gradient(circle at 70% 100%,
+            rgba(25, 55, 130, 0.07),
+            transparent 40%),
+        #060810;
+
+    color: #ffffff;
+}
+
+
+/* ================================
+   LIGHT MODE BACKGROUND
+================================ */
+
+.qualification-section.light-mode {
+    background: #f8fafc;
+
+    color: #0f172a;
+}
+
+
+/* ================================
+   BACKGROUND GLOW
+================================ */
+
+.background-glow {
+    pointer-events: none;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 350px;
+    height: 350px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+}
+
+
+.dark-glow {
+    background: rgba(70, 45, 150, 0.08);
+}
+
+
+.light-glow {
+    background: rgba(96, 165, 250, 0.10);
+}
+
+
+/* ================================
+   SECONDARY GLOW
+================================ */
+
+.secondary-glow {
+    pointer-events: none;
+
+    position: absolute;
+
+    right: 20%;
+    bottom: 40px;
+
+    width: 128px;
+    height: 128px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+}
+
+
+.dark-secondary-glow {
+    background: rgba(35, 65, 145, 0.07);
+}
+
+
+.light-secondary-glow {
+    background: rgba(192, 132, 252, 0.10);
+}
+
+
+/* ================================
+   HEADING
+================================ */
+
+.qualification-heading {
+    position: relative;
+
+    z-index: 10;
+
+    margin-bottom: 32px;
+
+    text-align: center;
+}
+
+
+.qualification-heading h2 {
+    margin: 0;
+
+    font-size: 36px;
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    letter-spacing: -0.02em;
+
+    transition: color 0.5s ease;
+}
+
+
+.dark-mode .qualification-heading h2 {
+    color: #ffffff;
+}
+
+
+.light-mode .qualification-heading h2 {
+    color: #0f172a;
+}
+
+
+.qualification-heading p {
+    margin: 4px 0 0;
+
+    font-size: 14px;
+
+    transition: color 0.5s ease;
+}
+
+
+.dark-mode .qualification-heading p {
+    color: #a1a1aa;
+}
+
+
+.light-mode .qualification-heading p {
+    color: #64748b;
+}
+
+
+/* ================================
+   TABS
+================================ */
+
+.qualification-tabs {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 40px;
+
+    margin-bottom: 40px;
+}
+
+
+.qualification-tab {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.qualification-tab:hover {
+    transform: translateY(-1px);
+}
+
+
+.dark-mode .qualification-tab {
+    color: #8b8b96;
+}
+
+
+.dark-mode .qualification-tab:hover,
+.dark-mode .qualification-tab.active {
+    color: #ffffff;
+}
+
+
+.light-mode .qualification-tab {
+    color: #94a3b8;
+}
+
+
+.light-mode .qualification-tab:hover,
+.light-mode .qualification-tab.active {
+    color: #0f172a;
+}
+
+
+.tab-icon {
+    transition: transform 0.3s ease;
+}
+
+
+.qualification-tab:hover .tab-icon {
+    transform: scale(1.1);
+}
+
+
+/* ================================
+   ACTIVE TAB LINE
+================================ */
+
+.active-tab-line {
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 100%;
+    height: 1px;
+}
+
+
+.dark-mode .active-tab-line {
+    background: #7c5cff;
+}
+
+
+.light-mode .active-tab-line {
+    background: #0f172a;
+}
+
+
+/* ================================
+   TIMELINE CONTAINER
+================================ */
+
+.timeline-container {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+    max-width: 672px;
+
+    margin: 0 auto;
+}
+
+
+.timeline-wrapper {
+    position: relative;
+
+    min-height: 130px;
+}
+
+
+/* ================================
+   TIMELINE LINE
+================================ */
+
+.timeline-line {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+}
+
+
+.dark-timeline {
+    background:
+        linear-gradient(to bottom,
+            rgba(124, 92, 255, 0.65),
+            rgba(124, 92, 255, 0.20),
+            transparent);
+}
+
+
+.light-timeline {
+    background:
+        linear-gradient(to bottom,
+            rgba(51, 65, 85, 0.7),
+            rgba(148, 163, 184, 0.4),
+            transparent);
+}
+
+
+/* ================================
+   TIMELINE ITEM
+================================ */
+
+.timeline-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    min-height: 110px;
+}
+
+
+/* ================================
+   LEFT / RIGHT
+================================ */
+
+.timeline-left {
+    padding-right: 48px;
+
+    text-align: right;
+}
+
+
+.timeline-right {
+    padding-left: 48px;
+
+    text-align: left;
+}
+
+
+/* ================================
+   CENTER DOT
+================================ */
+
+.timeline-dot-container {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+}
+
+
+.timeline-dot-wrapper {
+    position: relative;
+
+    display: flex;
+
+    width: 12px;
+    height: 12px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ================================
+   PULSE
+================================ */
+
+.timeline-pulse {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+}
+
+
+.dark-dot {
+    background: #7c5cff;
+}
+
+
+.light-dot {
+    background: #1e293b;
+}
+
+
+/* ================================
+   MAIN DOT
+================================ */
+
+.timeline-dot {
+    position: relative;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    transition:
+        background 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+.dark-main-dot {
+    background: #a78bfa;
+
+    box-shadow:
+        0 0 18px rgba(124, 92, 255, 0.65);
+}
+
+
+.light-main-dot {
+    background: #0f172a;
+
+    box-shadow:
+        0 0 15px rgba(15, 23, 42, 0.25);
+}
+
+
+/* ================================
+   TIMELINE CONTENT
+================================ */
+
+.timeline-content {
+    transition:
+        color 0.5s ease,
+        transform 0.2s ease;
+}
+
+
+.timeline-content h3 {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    transition:
+        color 0.5s ease,
+        letter-spacing 0.3s ease;
+}
+
+
+.dark-mode .timeline-content h3 {
+    color: #ffffff;
+}
+
+
+.light-mode .timeline-content h3 {
+    color: #0f172a;
+}
+
+
+/* ================================
+   SUBTITLE
+================================ */
+
+.timeline-subtitle {
+    max-width: 240px;
+
+    margin: 4px 0 0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    transition: color 0.5s ease;
+}
+
+
+.dark-mode .timeline-subtitle {
+    color: #a1a1aa;
+}
+
+
+.light-mode .timeline-subtitle {
+    color: #64748b;
+}
+
+
+/* ================================
+   INSTITUTE
+================================ */
+
+.timeline-institute {
+    margin: 4px 0 0;
+
+    font-size: 10px;
+
+    color: #71717a;
+
+    transition: color 0.5s ease;
+}
+
+
+/* ================================
+   DATE
+================================ */
+
+.timeline-date {
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    transition: color 0.5s ease;
+}
+
+
+.timeline-left .timeline-date {
+    justify-content: flex-end;
+}
+
+
+.timeline-right .timeline-date {
+    justify-content: flex-start;
+}
+
+
+.dark-mode .timeline-date {
+    color: rgba(167, 139, 250, 0.65);
+}
+
+
+.light-mode .timeline-date {
+    color: #94a3b8;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+
+    .qualification-section {
+        padding: 56px 20px;
+    }
+
+    .qualification-heading h2 {
+        font-size: 32px;
+    }
+
+    .timeline-left {
+        padding-right: 32px;
+    }
+
+    .timeline-right {
+        padding-left: 32px;
+    }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .qualification-section {
+        min-height: auto;
+
+        padding: 52px 16px;
+    }
+
+
+    .qualification-heading {
+        margin-bottom: 28px;
+    }
+
+
+    .qualification-heading h2 {
+        font-size: 28px;
+    }
+
+
+    .qualification-heading p {
+        font-size: 12px;
+    }
+
+
+    .qualification-tabs {
+        gap: 28px;
+
+        margin-bottom: 36px;
+    }
+
+
+    .qualification-tab {
+        font-size: 13px;
+    }
+
+
+    .timeline-container {
+        max-width: 100%;
+    }
+
+
+    .timeline-left {
+        padding-right: 24px;
+    }
+
+
+    .timeline-right {
+        padding-left: 24px;
+    }
+
+
+    .timeline-content h3 {
+        font-size: 13px;
+    }
+
+
+    .timeline-subtitle {
+        max-width: 180px;
+
+        font-size: 10px;
+    }
+
+
+    .timeline-institute {
+        font-size: 9px;
+    }
+
+
+    .timeline-date {
+        font-size: 9px;
+    }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 400px) {
+
+    .qualification-section {
+        padding: 45px 12px;
+    }
+
+
+    .qualification-heading h2 {
+        font-size: 26px;
+    }
+
+
+    .qualification-tabs {
+        gap: 22px;
+    }
+
+
+    .timeline-left {
+        padding-right: 18px;
+    }
+
+
+    .timeline-right {
+        padding-left: 18px;
+    }
+
+
+    .timeline-content h3 {
+        font-size: 12px;
+    }
+
+
+    .timeline-subtitle {
+        max-width: 150px;
+
+        font-size: 9px;
+    }
+
+}
