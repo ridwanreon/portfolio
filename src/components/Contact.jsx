@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import "../Contact.css";
 
-// Animation variants – consistent with the rest of the portfolio
+// Animation variants
 const sectionVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -47,6 +47,9 @@ export default function Contact() {
         project: "",
     });
 
+    const [status, setStatus] = useState("");
+    const [isSending, setIsSending] = useState(false);
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -54,31 +57,75 @@ export default function Contact() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const subject = `Project Inquiry from ${formData.name}`;
+        setIsSending(true);
+        setStatus("");
 
-        const body = `
-Hello Ridwan,
+        const formDataToSend = new FormData();
 
-Name: ${formData.name}
-Email: ${formData.email}
+        formDataToSend.append(
+            "access_key",
+            "1dcfb71a-66e8-455f-b83f-9c5966dbe7cc"
+        );
 
-Project Details:
-${formData.project}
-        `;
+        formDataToSend.append("name", formData.name);
+        formDataToSend.append("email", formData.email);
+        formDataToSend.append("project", formData.project);
 
-        const mailtoLink = `mailto:reonrahman8@gmail.com?subject=${encodeURIComponent(
-            subject
-        )}&body=${encodeURIComponent(body)}`;
+        formDataToSend.append(
+            "subject",
+            `Project Inquiry from ${formData.name}`
+        );
 
-        window.location.href = mailtoLink;
+        formDataToSend.append(
+            "from_name",
+            "Portfolio Contact Form"
+        );
+
+        formDataToSend.append(
+            "replyto",
+            formData.email
+        );
+
+        try {
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formDataToSend,
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.success) {
+                setStatus("Message sent successfully!");
+
+                setFormData({
+                    name: "",
+                    email: "",
+                    project: "",
+                });
+            } else {
+                setStatus(
+                    "Failed to send message. Please try again."
+                );
+            }
+        } catch (error) {
+            setStatus(
+                "Something went wrong. Please try again."
+            );
+        } finally {
+            setIsSending(false);
+        }
     };
 
     return (
         <motion.section
-            className={`contact-section ${isDark ? "contact-dark" : "contact-light"}`}
+            className={`contact-section ${isDark ? "contact-dark" : "contact-light"
+                }`}
             id="contact"
             variants={sectionVariants}
             initial="hidden"
@@ -108,12 +155,17 @@ ${formData.project}
                 >
 
                     {/* ================= LEFT ================= */}
-                    <motion.div className="contact-left" variants={itemVariants}>
-
+                    <motion.div
+                        className="contact-left"
+                        variants={itemVariants}
+                    >
                         <h3>Talk to me</h3>
 
                         {/* Email */}
-                        <motion.div className="contact-card" variants={itemVariants}>
+                        <motion.div
+                            className="contact-card"
+                            variants={itemVariants}
+                        >
                             <div className="contact-icon email-icon">
                                 ✉
                             </div>
@@ -136,7 +188,10 @@ ${formData.project}
                         </motion.div>
 
                         {/* LinkedIn */}
-                        <motion.div className="contact-card" variants={itemVariants}>
+                        <motion.div
+                            className="contact-card"
+                            variants={itemVariants}
+                        >
                             <div className="contact-icon linkedin-icon">
                                 in
                             </div>
@@ -150,7 +205,7 @@ ${formData.project}
                             </p>
 
                             <a
-                                href="https://www.linkedin.com/in/ridwanreon"
+                                href="https://www.linkedin.com/in/reon-rahman-195615379/"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="contact-link"
@@ -159,18 +214,22 @@ ${formData.project}
                                 <span>→</span>
                             </a>
                         </motion.div>
-
                     </motion.div>
 
                     {/* ================= RIGHT ================= */}
-                    <motion.div className="contact-right" variants={itemVariants}>
-
+                    <motion.div
+                        className="contact-right"
+                        variants={itemVariants}
+                    >
                         <h3>Write me your project</h3>
 
                         <form onSubmit={handleSubmit}>
 
                             {/* Name */}
-                            <motion.div className="form-group" variants={itemVariants}>
+                            <motion.div
+                                className="form-group"
+                                variants={itemVariants}
+                            >
                                 <label htmlFor="name">
                                     Name
                                 </label>
@@ -187,7 +246,10 @@ ${formData.project}
                             </motion.div>
 
                             {/* Email */}
-                            <motion.div className="form-group" variants={itemVariants}>
+                            <motion.div
+                                className="form-group"
+                                variants={itemVariants}
+                            >
                                 <label htmlFor="email">
                                     Email
                                 </label>
@@ -204,7 +266,10 @@ ${formData.project}
                             </motion.div>
 
                             {/* Project */}
-                            <motion.div className="form-group" variants={itemVariants}>
+                            <motion.div
+                                className="form-group"
+                                variants={itemVariants}
+                            >
                                 <label htmlFor="project">
                                     Project
                                 </label>
@@ -224,12 +289,25 @@ ${formData.project}
                                 type="submit"
                                 className="send-button"
                                 variants={itemVariants}
+                                disabled={isSending}
                             >
-                                <span>Send Message</span>
+                                <span>
+                                    {isSending
+                                        ? "Sending..."
+                                        : "Send Message"}
+                                </span>
+
                                 <span className="send-icon">
                                     ◇
                                 </span>
                             </motion.button>
+
+                            {/* Status */}
+                            {status && (
+                                <p className="form-status">
+                                    {status}
+                                </p>
+                            )}
 
                         </form>
                     </motion.div>
